@@ -9,6 +9,6 @@ jobs :
       - name: Hello World
         run: echo "Hello, World!"
       - name: Print Name
-        run: echo "Name is ${{ github.event.inputs.name }}"
+        run: echo "Name is Rafeeq
       - name: Print Age
-        run: echo "Age is ${{ github.event.inputs.age }}"
+        run: echo "Age is 22
