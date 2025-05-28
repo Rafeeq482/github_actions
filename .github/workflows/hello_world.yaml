@@ -18,7 +18,7 @@ jobs:
       - name: Launch EC2 Instance
         run: |
           aws ec2 run-instances \
-            --image-id aami-0af9569868786b23a  
+            --image-id ami-0af9569868786b23a  
             --instance-type t2.micro 
             --key-name SNS 
             --security-groups sg-0fef0819f181d85b9 
