@@ -1,14 +1,25 @@
-name : Rafeeq
+name: Launch EC2 Instance
 
-on :
-  workflow_dispatch:
-jobs :
-  hello_world:
+on:
+  workflow_dispatch:  # manual trigger
+
+jobs:
+  deploy:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Hello World
-        run: echo "Hello, World!"
-      - name: Print Name
-        run: echo "Name is Rafeeq
-      - name: Print Age
-        run: echo "Age is 22
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ap-south-1
+
+      - name: Launch EC2 Instance
+        run: |
+          aws ec2 run-instances \
+            --image-id aami-0af9569868786b23a \  # Example Ubuntu AMI (us-east-1)
+            --instance-type t2.micro \
+            --key-name SNS \
+            --security-groups sg-0fef0819f181d85b9 \
+            --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=MyGitHubEC2}]'
