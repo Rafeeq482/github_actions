@@ -36,7 +36,6 @@ jobs:
 
       - name: Terraform Plan
         run: terraform plan -out=tfplan
-        working-directory: ./terraform
 
       - name: Terraform Apply
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
