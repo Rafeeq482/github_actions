@@ -5,11 +5,9 @@ provider "aws" {
 module "ec2_instance" {
   source  = "terraform-aws-modules/ec2-instance/aws"
 
-  for_each = toset(["one", "two", "three"])
-
-  name                   = "instance-${each.key}-${var.environment}"
+  name                   = "instance-${var.environment}"
   instance_type          = "t2.micro"
-  key_name               = "SNS"
+  key_name               = "newacc"
   monitoring             = true
   vpc_security_group_ids = ["sg-0fef0819f181d85b9"]
   subnet_id              = "subnet-06cdf6a7520a97aee"
@@ -17,6 +15,6 @@ module "ec2_instance" {
   tags = {
     Terraform   = "true"
     Environment = var.environment
-    Name        = "instance-${each.key}-${var.environment}"
+    Name        = "instance-${var.environment}"
   }
 }
