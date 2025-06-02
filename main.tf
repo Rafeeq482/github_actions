@@ -6,7 +6,7 @@ module "ec2_instance" {
   source  = "terraform-aws-modules/ec2-instance/aws"
 
   name                   = "instance-${var.environment}"
-  instance_type          = "t2.micro"
+  instance_type          = "t3.micro"
   key_name               = "SNS"
   monitoring             = true
   vpc_security_group_ids = ["sg-0fef0819f181d85b9"]
