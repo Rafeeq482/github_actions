@@ -7,7 +7,7 @@ module "ec2_instance" {
 
   name                   = "instance-${var.environment}"
   instance_type          = "t2.micro"
-  key_name               = "newacc"
+  key_name               = "SNS"
   monitoring             = true
   vpc_security_group_ids = ["sg-0fef0819f181d85b9"]
   subnet_id              = "subnet-06cdf6a7520a97aee"
