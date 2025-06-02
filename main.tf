@@ -10,7 +10,7 @@ module "ec2_instance" {
   key_name               = "SNS"
   monitoring             = true
   vpc_security_group_ids = ["sg-0fef0819f181d85b9"]
-  subnet_id              = "subnet-092ea30ffb0421a84"
+  subnet_id              = "subnet-06cdf6a7520a97aee"
 
   tags = {
     Terraform   = "true"
