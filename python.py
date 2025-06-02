@@ -1,1 +1,1 @@
-print("Hello world is new Old commit")
+print("Hello world is new commit")
